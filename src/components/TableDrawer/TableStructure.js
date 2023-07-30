@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import TablePopup from "./TablePopup";
 import GetTableInfo from "../GetTableInfo";
 
-function TableStructure({ tableName, tableHead, tableNo }) {
+function TableStructure({ tableName, tableNo }) {
   const [trigger, setTrigger] = useState(false);
-  tableHead = Object.values(tableHead);
 
   const [tableHeadData, setTableHeadData] = useState([]);
   const [tableRowData, setTableRowData] = useState([]);
@@ -36,17 +35,6 @@ function TableStructure({ tableName, tableHead, tableNo }) {
         </svg>
         <p className="font-bold text-lg ml-3 text-gray-500">{tableName} [-]</p>
       </div>
-      {tableHead.map((row, index) => (
-        <div className="flex items-end relative ml-3" key={index}>
-          <div className="w-6 h-8 border-l-2 border-b-2"></div>
-          <p className="absolute top-5 left-9 text-gray-500 text-sm font-semibold">
-            {row}{" "}
-            <span className="text-[#000000] hover:text-[#000000]">
-              [varchar(40)]
-            </span>
-          </p>
-        </div>
-      ))}
 
       <TablePopup
         trigger={trigger}
